@@ -8,6 +8,8 @@
 </head>
 
 <body>
+{{--[6] include the layout--}}
+@include('inc/navbar')
 
 {{--[4] Here will bring the contents of the other pages--}}
 @yield('content')

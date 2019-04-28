@@ -23,7 +23,8 @@ Route::get('/users/{id}/{name}', function ($id,$name) {
 });
 */
 
-//[2] use route to call a controller and its method
+//[2/3] use route to call a controller and its method
 Route::get('/','PagesController@index');
 Route::get('/about','PagesController@about');
 Route::get('/services','PagesController@services');
+

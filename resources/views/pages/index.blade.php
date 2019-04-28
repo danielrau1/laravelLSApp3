@@ -1,15 +1,8 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{config('app.name','LSApp3')}}</title>
-</head>
-
-<body>
-<h1>Welcome to LSApp3</h1>
+{{--[4] now in this view need only the parts that will be sent to the layout--}}
+@extends('layouts/app')
+@section('content')
+    {{--[5] The value passed into the controller method--}}
+<h1>{{$title}}</h1>
 <p>This is index page</p>
-
-</body>
-</html>
+@endsection

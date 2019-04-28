@@ -10,17 +10,22 @@ class PagesController extends Controller
     {
         // return 'INDEX'; //[2]
 
-        return view('pages/index'); //[3] use the controller method to return a view
+        $title = "Welcome to LSApp3!";//[5] passing values into method
+        //[3] use the controller method to return a view
+        return view('pages/index')->with('title',$title);//[5]
     }
 
     public function about(){
-
-        return view('pages/about');
+        $title = 'About!';
+        return view('pages/about')->with('title',$title); //[5b]
     }
 
     public function services(){
-
-        return view('pages/services');
+        $data = [
+          'title'=>'Services!',
+          'services'=>['A','B','C']
+        ];
+        return view('pages/services')->with($data); //[5c]
     }
 
 }
