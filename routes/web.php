@@ -29,4 +29,4 @@ Route::get('/about','PagesController@about');
 Route::get('/services','PagesController@services');
 
 //[8]
-Route::resource('posts','PostController');
+Route::resource('posts','PostsController');
