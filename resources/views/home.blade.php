@@ -18,6 +18,38 @@
                         <li><a href="http://localhost/lsapp3/public/posts/create" >Create Post</a></li>
 
                     <h3>Your Posts</h3>
+
+                        {{--[24] table with the posts of the logged in user--}}
+                        @if(count($posts)>0)
+                            <table>
+                                <tr>
+                                    <th>Title</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                @foreach($posts as $post)
+                                    <tr>
+                                        <td>{{$post->title}}</td>
+                                        <td><a href="http://localhost/lsapp3/public/posts/{{$post->id}}/edit" >Edit</a></td>
+                                        <td>
+                                            {{--To delete a post need to make a form:--}}
+
+                                            {{ Form::open(['action'=>['PostsController@destroy',$post->id],'method'=>'post'])}}
+
+                                            {{--the real method here is delete--}}
+                                            {{Form::hidden('_method','DELETE')}}
+
+                                            {{Form::submit('Delete')}}
+                                            {{ Form::close()}}
+                                        </td>
+                                    </tr>
+                                @endforeach
+
+                            </table>
+                            @else
+                            <p>You have no posts</p>
+                        @endif
+
                 </div>
             </div>
         </div>

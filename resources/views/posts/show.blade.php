@@ -4,7 +4,9 @@
     <a href="http://localhost/lsapp3/public/posts" >Back</a>
     {{--[12]--}}
     <h1>{{$post->title}}</h1>
-    <small>Written on {{$post->created_at}}</small>
+    <small>Written on {{$post->created_at}} by {{$post->user->name}}</small>
+                                                            {{--[25]--}}
+
     <div>
         {{--[18] to parse the html--}}
         {!!$post->body!!}

@@ -7,7 +7,8 @@
     {{Form::text('title',$post->title)}}
     <br>
     {{Form::label('body','Body')}}
-    {{Form::textarea('body',$post->body,['id'=>'summary-ckeditor'])}}
+    {{--{{Form::textarea('body',$post->body,['id'=>'summary-ckeditor'])}}--}}
+    {{Form::textarea('body',$post->body)}}
 
     {{--in order to be able to de the post since update should be either put or patch--}}
     {{Form::hidden('_method','PUT')}}

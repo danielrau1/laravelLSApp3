@@ -14,4 +14,9 @@ class Post extends Model
 
     //timestamps
     public $timestamps = true;
+
+    //[24] Creating a relationship - a post can have only 1 user
+    public function user(){
+        return $this->belongsTo('App\user');
+    }
 }
