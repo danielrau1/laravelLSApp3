@@ -58,6 +58,7 @@ class PostsController extends Controller
         $post = new Post;
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+        $post->user_id = auth()->user()->id; //[23]
         $post->save();
         return redirect('/posts');
     }
@@ -110,6 +111,7 @@ class PostsController extends Controller
         $post = Post::find($id);
         $post->title = $request->input('title');//gets the title submitted into the form
         $post->body= $request->input('body');
+
         $post->save();
         return redirect('/posts');
     }

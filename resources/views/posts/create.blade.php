@@ -9,7 +9,8 @@
     <br>
     {{Form::label('body','Body')}}
     {{--[18] id for the body--}}
-    {{Form::textarea('body','',['id'=>'summary-ckeditor'])}}
+    {{--{{Form::textarea('body','',['id'=>'summary-ckeditor'])}}--}}
+    {{Form::textarea('body','')}}
 
     {{Form::submit('Submit')}}
     {{ Form::close()}}
