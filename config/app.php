@@ -161,6 +161,9 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class, //[16]
+        Unisharp\Ckeditor\ServiceProvider::class, //[18]
+
 
         /*
          * Package Service Providers...
@@ -225,6 +228,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Form'=>Collective\Html\FormFacade::class, //[16]
+        'Html'=>Collective\Html\HtmlFacade::class, //[16]
 
     ],
 

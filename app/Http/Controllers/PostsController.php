@@ -30,9 +30,13 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+
+    //[15]
     public function create()
     {
-        //
+        return view('posts/create');
     }
 
     /**
@@ -41,9 +45,21 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    //[17]
     public function store(Request $request)
     {
-        //
+        //Validate
+        $this->validate($request, [
+            'title'=>'required',
+            'body'=>'required'
+            ]);
+        //Create post
+        $post = new Post;
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->save();
+        return redirect('/posts');
     }
 
     /**

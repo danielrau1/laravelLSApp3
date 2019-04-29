@@ -14,6 +14,12 @@
 {{--[4] Here will bring the contents of the other pages--}}
 @yield('content')
 
+{{--[18]--}}
+{{--https://artisansweb.net/install-use-ckeditor-laravel/--}}
+<script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+<script>
+    CKEDITOR.replace( 'summary-ckeditor' );
+</script>
 
 </body>
 </html>
