@@ -82,9 +82,11 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //[19] when click edit it redirects to the posts/edit.php
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        return view('posts/edit')->with('post',$post);
     }
 
     /**
@@ -94,9 +96,22 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    //[19]b in posts/edit.php when submit the editted post it runs the update function
     public function update(Request $request, $id)
     {
-        //
+
+        $this->validate($request,[
+            'title'=>'required',
+            'body'=>'required'
+        ]);
+
+
+        $post = Post::find($id);
+        $post->title = $request->input('title');//gets the title submitted into the form
+        $post->body= $request->input('body');
+        $post->save();
+        return redirect('/posts');
     }
 
     /**
@@ -105,8 +120,13 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //[20] Delete a function
     public function destroy($id)
     {
-        //
+        //to delete a post
+        $post = Post::find($id);
+
+        $post->delete();
+        return redirect('/posts');
     }
 }

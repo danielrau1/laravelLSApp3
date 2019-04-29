@@ -11,5 +11,13 @@
 
     </div>
 
+    {{--[19] Edit a post--}}
+    <a href="http://localhost/lsapp3/public/posts/{{$post->id}}/edit" >Edit</a>
+
+    {{--[20] Delete a post--}}
+    {{ Form::open(['action'=>['PostsController@destroy',$post->id],'method'=>'post'])}}
+    {{Form::hidden('_method','DELETE')}}
+    {{Form::submit('Delete')}}
+    {{ Form::close()}}
 
 @endsection
