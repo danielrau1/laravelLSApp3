@@ -13,6 +13,10 @@
 
     </div>
 
+    {{--[27]--}}
+    @if(!Auth::guest())
+        {{--[28]--}}
+        @if(Auth::user()->id == $post->user_id)
     {{--[19] Edit a post--}}
     <a href="http://localhost/lsapp3/public/posts/{{$post->id}}/edit" >Edit</a>
 
@@ -21,5 +25,7 @@
     {{Form::hidden('_method','DELETE')}}
     {{Form::submit('Delete')}}
     {{ Form::close()}}
+            @endif
+@endif
 
 @endsection

@@ -8,6 +8,14 @@ use DB; // in order to be able to use the sql querries
 
 class PostsController extends Controller
 {
+    //[26]
+    public function __construct()
+    {
+        $this->middleware('auth',['except'=>['index','show']]);
+    }
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -87,6 +95,11 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
+        //[29] check for correct user
+        if(auth()->user()->id !== $post->user_id){
+            return redirect('posts');
+        }
+
         return view('posts/edit')->with('post',$post);
     }
 
@@ -127,6 +140,11 @@ class PostsController extends Controller
     {
         //to delete a post
         $post = Post::find($id);
+
+        //[30] check for correct user
+        if(auth()->user()->id !== $post->user_id){
+            return redirect('posts');
+        }
 
         $post->delete();
         return redirect('/posts');
